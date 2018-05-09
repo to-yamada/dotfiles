@@ -50,6 +50,8 @@ alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
+alias vi='nvim'
+alias vim='nvim'
 
 # backspace,deleteキーを使えるように
 stty erase "^H"
