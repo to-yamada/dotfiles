@@ -43,9 +43,18 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # alias
-alias ls='ls -F --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
+case "${OSTYPE}" in
+darwin*)
+  alias ls='ls -FG'
+  alias la='ls -laG'
+  alias ll='ls -lg'
+  ;;
+linux*)
+  alias ls='ls -F --color=auto'
+  alias la='ls -la --color=auto'
+  alias ll='ls -l --color=auto'
+  ;;
+esac
 alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
 alias rm='rm -i'
@@ -123,6 +132,9 @@ precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
+if [ -d ${HOME}/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init - zsh)"
+  . ~/.rbenv/completions/rbenv.zsh
+fi
 
