@@ -263,9 +263,13 @@ nnoremap k gk
 nnoremap <Down> gj
 nnoremap j gj
 
-" C-j で IME 切り替え、C-kで挿入モード抜ける
+" C-j で IME 切り替え、C-k, jjで挿入モード抜ける
 imap <C-j> <C-^>
 imap <C-k> <Esc>
+inoremap <silent> jj <ESC>
+
+" キーコードシーケンスが終了するのを待つ時間を短く
+set ttimeoutlen=10
 
 " C-g で カーソル直下の単語を vimgrep
 function! s:GrepVimWord()
