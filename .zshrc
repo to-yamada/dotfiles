@@ -52,7 +52,7 @@ alias rm='rm -i'
 alias mkdir='mkdir -p'
 
 # backspace,deleteキーを使えるように
-stty erase ^H
+stty erase "^H"
 bindkey "^[[3~" delete-char
 
 # 区切り文字の設定
