@@ -38,6 +38,17 @@ if dein#check_install()
   call dein#install()
 endif
 
+" プラグイン削除用
+function! s:deinClean()
+  if len(dein#check_clean())
+    call map(dein#check_clean(), 'delete(v:val, "rf")')
+  else
+    echo '[ERR] no disabled plugins'
+  endif
+endfunction
+command! DeinClean :call s:deinClean()
+
+
 "---------------------------------------------------------------------------
 " 文字コードの自動認識
 "---------------------------------------------------------------------------
