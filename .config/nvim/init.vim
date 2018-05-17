@@ -1,6 +1,3 @@
-" vim:set ts=8 sts=2 sw=2 tw=0:
-"
-"
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -120,13 +117,11 @@ set hlsearch
 "---------------------------------------------------------------------------
 " 編集に関する設定:
 "---------------------------------------------------------------------------
-" タブの画面上での幅
+" タブ
 set tabstop=4
 set shiftwidth=4
-set softtabstop=0
-
-" タブをスペースに展開しない (expandtab:展開する)
-set noexpandtab
+set softtabstop=4
+set expandtab
 
 " 自動的にインデントする (noautoindent:インデントしない)
 set autoindent
@@ -168,32 +163,15 @@ set clipboard=unnamed
 set virtualedit=block
 
 "-------------------------------------------------------------------------------
-" autocmd に関する設定
+" 最後にカーソルがあった場所へカーソルを移動
 "-------------------------------------------------------------------------------
 if has("autocmd")
-  filetype plugin indent on
   augroup vimrcEx
-  au!
-  autocmd FileType text setlocal textwidth=78
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
   augroup END
-  autocmd FileType python setlocal tabstop=4
-  autocmd FileType python setlocal shiftwidth=4
-  autocmd FileType python setlocal softtabstop=4
-  autocmd FileType python setlocal expandtab
-  autocmd FileType ruby setlocal tabstop=2
-  autocmd FileType ruby setlocal shiftwidth=2
-  autocmd FileType ruby setlocal softtabstop=2
-  autocmd FileType ruby setlocal expandtab
-  autocmd FileType asm setlocal tabstop=8
-  autocmd FileType asm setlocal shiftwidth=8
-  autocmd FileType asm setlocal softtabstop=8
-  autocmd BufRead,BufNewFile *.go setfiletype go
-else
-  set autoindent
 endif
 
 "---------------------------------------------------------------------------
