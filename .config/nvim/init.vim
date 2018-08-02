@@ -233,6 +233,24 @@ nnoremap k gk
 nnoremap <Down> gj
 nnoremap j gj
 
+" コマンドライン上では emacs 風に移動
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" https://qiita.com/itmammoth/items/312246b4b7688875d023 より
+" カーソル下の単語をハイライトしてから置換する
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nmap # <Space><Space>:%s/<C-r>///g<Left><Left>
+
+" https://qiita.com/itmammoth/items/312246b4b7688875d023 より
+" ハイライトを消去する
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
 " diff は C-j, C-k で移動
 nnoremap <C-j> ]czz
 nnoremap <C-k> [czz
@@ -245,39 +263,11 @@ inoremap <silent> jj <ESC>
 " キーコードシーケンスが終了するのを待つ時間を短く
 set ttimeoutlen=10
 
-" C-g で カーソル直下の単語を vimgrep
-function! s:GrepVimWord()
-  let findwords = expand("<cword>")
-
-  if findwords == ""
-    echo "検索用語がありません"
-    return
-  end
-
-  let ext = expand("%:e")
-  let target = "*"
-  if ext == "c" || ext == "cpp" || ext == "h" || ext == "hpp"
-    let target = "*.c *.cpp *.h *.hpp"
-  elseif ext == "py" || ext == "pyw"
-    let target = "*.py *.pyw"
-  elseif ext == "rb"
-    let target = "*.rb"
-  elseif ext == "asm"
-    let target = "*.asm *.inc *.h"
-  endif
-  execute 'vimgrep /\C\<' . findwords . '\>/j ' . target . ' | cwin'
-endfunction
-
-command! GrepVimWord call s:GrepVimWord()
-nmap <C-g> :GrepVimWord<Enter>
 
 " 検索後が画面の真ん中に来るように
 nmap n nzz
 nmap N Nzz
 nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
 
 
 let g:netrw_nogx = 1

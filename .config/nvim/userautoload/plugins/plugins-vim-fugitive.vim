@@ -1,9 +1,8 @@
 nnoremap [fugitive]  <Nop>
-nmap <space>g [fugitive]
-nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
-nnoremap <silent> [fugitive]a :Gwrite<CR>
-nnoremap <silent> [fugitive]c :Gcommit-v<CR>
-nnoremap <silent> [fugitive]b :Gblame<CR>
-nnoremap <silent> [fugitive]d :Gdiff<CR>
-nnoremap <silent> [fugitive]m :Gmerge<CR>
+nmap <C-g> [fugitive]
+nnoremap <silent> [fugitive]<C-s> :Gstatus<CR><C-w>T
+nnoremap <silent> [fugitive]<C-d> :Gvdiff<CR>
+nnoremap <silent> [fugitive]<C-a> :Gwrite<CR>
+nnoremap <silent> [fugitive]<C-b> :Gblame<CR>
+nnoremap <silent> [fugitive]<C-m> :Gmerge<CR>
 
