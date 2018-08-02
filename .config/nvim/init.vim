@@ -217,6 +217,11 @@ set viminfo='100,<50,s10,h,n~/.viminfo
 if !has('gui_running') && !has('win32')
   set t_Co=256
   colorscheme Tomorrow-Night-Bright
+  " vimdiffの色設定
+  highlight DiffAdd    ctermbg=22
+  highlight DiffDelete ctermbg=52
+  highlight DiffChange ctermbg=17
+  highlight DiffText   ctermbg=21
 endif
 
 "---------------------------------------------------------------------------
@@ -227,6 +232,10 @@ nnoremap <Up> gk
 nnoremap k gk
 nnoremap <Down> gj
 nnoremap j gj
+
+" diff は C-j, C-k で移動
+nnoremap <C-j> ]czz
+nnoremap <C-k> [czz
 
 " C-j で IME 切り替え、C-k, jjで挿入モード抜ける
 imap <C-j> <C-^>
