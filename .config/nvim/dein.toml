@@ -32,5 +32,11 @@ hook_add = '''
     \   'gitbranch': 'fugitive#head'
     \ },
   \ }
+
+  " # show statusbar
+  set laststatus=2
+
+  " hide --INSERT--
+  set noshowmode
 '''
 

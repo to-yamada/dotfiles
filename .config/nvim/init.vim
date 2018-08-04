@@ -171,12 +171,6 @@ set list
 " 長い行は折り返さないで表示
 set nowrap
 
-" 常にステータス行を表示
-set laststatus=2
-
-" コマンドラインの高さ
-set cmdheight=1
-
 " コマンドをステータス行に表示
 set showcmd
 
