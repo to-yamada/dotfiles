@@ -5,7 +5,9 @@ endif
 "---------------------------------------------------------------------------
 " dein
 "---------------------------------------------------------------------------
-let s:dein_dir = expand('~/.cache/dein')
+let s:cache_home = empty($XDG_CACHE_HOME) ?
+  \ expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_path = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 "deinがinstallされてなければgit clone
 if !isdirectory(s:dein_repo_path)
@@ -16,9 +18,8 @@ execute 'set runtimepath^=' . s:dein_repo_path
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  let g:config_dir  = expand('~/.config/nvim')
-  let s:toml        = g:config_dir . '/dein.toml'
-  let s:lazy_toml   = g:config_dir . '/dein_lazy.toml'
+  let s:toml = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+  let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
 
   " TOML 読み込み
   call dein#load_toml(s:toml,      {'lazy': 0})

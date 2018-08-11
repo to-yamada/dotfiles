@@ -8,7 +8,7 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'chriskempson/vim-tomorrow-theme'
 
 [[plugins]]
-repo = "tpope/vim-fugitive"
+repo = 'tpope/vim-fugitive'
 hook_add = '''
   nnoremap [fugitive]  <Nop>
   nmap <C-g> [fugitive]
