@@ -159,6 +159,7 @@ set virtualedit=block
 set ignorecase  " 検索時に大文字小文字を無視
 set smartcase   " 大文字小文字の両方が含まれている場合は大文字小文字を区別
 set incsearch   " インクリメンタルサーチ
+set inccommand=split    " インクリメンタル置換
 set hlsearch    " 検索結果をハイライト
 
 " 行番号を表示
