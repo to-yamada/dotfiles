@@ -61,7 +61,7 @@ hook_add = '''
   " 現在の行を実行
   nnoremap <silent> <C-e><C-e> :TREPLSendLine<CR>
 
-  " ビジュアルモードで洗濯中の行を実行
+  " ビジュアルモードで選択中の行を実行
   vnoremap <silent> <C-e><C-e> V:TREPLSendSelection<CR>
 
   " ファイルそのものを実行
