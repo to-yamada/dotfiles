@@ -170,6 +170,9 @@ set hlsearch    " 検索結果をハイライト
 " 行番号を表示
 set number
 
+" 現在行を強調表示
+set cursorline
+
 " タブや改行を表示
 " どの文字でタブや改行を表示するかを設定
 set listchars=tab:>.,nbsp:%,extends:>,precedes:<,eol:$
