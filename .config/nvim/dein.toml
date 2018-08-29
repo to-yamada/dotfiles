@@ -14,6 +14,8 @@ hook_add = '''
   " grep
   nnoremap <silent> [denite]<C-g> :<C-u>Denite grep
     \ -no-empty -mode=normal<CR>
+  nnoremap <silent> [denite]<C-k> :<C-u>Denite grep:::<C-r><C-w>
+    \ -no-empty -mode=normal<CR>
   nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
     \ -no-empty -mode=normal<CR>
   nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
