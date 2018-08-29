@@ -16,11 +16,6 @@ hook_add = '''
     \ -no-empty -mode=normal<CR>
   nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
     \ -no-empty -mode=normal<CR>
-  "nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
-  "  \ -select=+1 -immediately<CR>
-  "nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume
-  "  \ -select=-1 -immediately<CR>
-
   nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
     \ -cursor-pos=+1 -immediately<CR>
   nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume
