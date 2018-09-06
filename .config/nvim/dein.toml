@@ -14,8 +14,15 @@ hook_add = '''
   " grep
   nnoremap <silent> [denite]<C-g> :<C-u>Denite grep
     \ -no-empty -mode=normal<CR>
-  nnoremap <silent> [denite]<C-k> :<C-u>Denite grep:::\\b<C-r><C-w>\\b
+
+  " [denite]<C-k> で単語単位での grep
+  " incsearch がセットされていると <C-r><C-w> (カーソル下の単語を補完)
+  " が \\b にくっついてしまい、 b で始まる単語を探せないため、
+  " スペースをあけ、補完後単語単位移動でスペースを削除している。
+  nnoremap <silent> [denite]<C-k>
+    \ :<C-u>Denite grep:::\\b <C-r><C-w><S-Left><BS><S-Right>\\b
     \ -no-empty -mode=normal<CR>
+
   nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
     \ -no-empty -mode=normal<CR>
   nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
