@@ -11,7 +11,7 @@ hook_add = '''
   " v で vsplit
   call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
 
-  " grep
+  " [denite]<C-g> でgrep
   nnoremap <silent> [denite]<C-g> :<C-u>Denite grep
     \ -no-empty -mode=normal<CR>
 
@@ -23,18 +23,23 @@ hook_add = '''
     \ :<C-u>Denite grep:::\\b <C-r><C-w><S-Left><BS><S-Right>\\b
     \ -no-empty -mode=normal<CR>
 
+  " [denite]<C-n> で検索結果を開き直す
   nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
     \ -no-empty -mode=normal<CR>
+
+  " [denite]<C-n> で次の検索結果へ
   nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
     \ -cursor-pos=+1 -immediately<CR>
+
+  " [denite]<C-p> で前の検索結果へ
   nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume
     \ -cursor-pos=-1 -immediately<CR>
 
-  " C-f でファイル一覧
+  " [denite]<C-f> でファイル一覧
   nnoremap <silent> [denite]<C-f> :<C-u>Denite file/rec
     \ -no-empty -mode=normal<CR>
 
-  " C-d で dotfiles 編集
+  " [denite]<C-d> で dotfiles 編集
   nnoremap <silent> [denite]<C-d> :<C-u>call denite#start(
     \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 
