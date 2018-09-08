@@ -61,6 +61,7 @@ alias rm='rm -i'
 alias mkdir='mkdir -p'
 alias vi='nvim'
 alias vim='nvim'
+alias b='bundle exec'
 
 # backspace,deleteキーを使えるように
 stty erase "^H"
