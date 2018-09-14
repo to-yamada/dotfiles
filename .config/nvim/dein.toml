@@ -16,11 +16,9 @@ hook_add = '''
     \ -no-empty -mode=normal<CR>
 
   " [denite]<C-k> で単語単位での grep
-  " incsearch がセットされていると <C-r><C-w> (カーソル下の単語を補完)
-  " が \\b にくっついてしまい、 b で始まる単語を探せないため、
-  " スペースをあけ、補完後単語単位移動でスペースを削除している。
+  " (カーソル下の単語をレジスタzへ格納しペースト)
   nnoremap <silent> [denite]<C-k>
-    \ :<C-u>Denite grep:::\\b <C-r><C-w><S-Left><BS><S-Right>\\b
+    \ "zyiw:<C-u>Denite grep:::\\b<C-r>z\\b
     \ -no-empty -mode=normal<CR>
 
   " [denite]<C-n> で検索結果を開き直す
