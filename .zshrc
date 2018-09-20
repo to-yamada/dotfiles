@@ -59,6 +59,7 @@ alias mkdir='mkdir -p'
 alias vi='nvim'
 alias vim='nvim'
 alias b='bundle exec'
+alias r='bundle exec rails'
 
 # backspace,deleteキーを使えるように
 stty erase "^H"
