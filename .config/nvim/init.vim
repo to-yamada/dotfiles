@@ -151,6 +151,9 @@ set wildmenu
 " 補完モード。対象をリストする。
 set wildmode=list:longest
 
+" ファイル名やディレクトリを補完するときに大文字小文字を無視
+set wildignorecase
+
 " テキスト挿入中の自動折り返しを日本語に対応させる
 set formatoptions+=mM
 
