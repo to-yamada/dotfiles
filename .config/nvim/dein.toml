@@ -41,6 +41,10 @@ hook_add = '''
   nnoremap <silent> [denite]<C-d> :<C-u>call denite#start(
     \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 
+  " [denite]p で miniyank
+  nnoremap <silent> [denite]<C-p> :<C-u>Denite miniyank
+    \ -mode=normal<CR>
+
   " ripgrep 使用
   if executable('rg')
     call denite#custom#var('file/rec', 'command',
@@ -56,6 +60,13 @@ hook_add = '''
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'bfredl/nvim-miniyank'
+hook_add = '''
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+'''
 
 [[plugins]]
 repo = 'chriskempson/vim-tomorrow-theme'
