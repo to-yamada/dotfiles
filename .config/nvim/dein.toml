@@ -84,6 +84,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   let g:lightline = {
