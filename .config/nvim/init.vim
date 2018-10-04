@@ -209,11 +209,6 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <C-j> ]czz
 nnoremap <C-k> [czz
 
-" 検索後が画面の真ん中に来るように
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-
 " Load settings for each location.
 " https://vim-jp.org/vim-users-jp/2009/12/27/Hack-112.html
 augroup vimrc-local
@@ -227,4 +222,3 @@ function! s:vimrc_local(loc)
     source `=i`
   endfor
 endfunction
-

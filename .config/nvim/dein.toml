@@ -93,7 +93,7 @@ hook_add = '''
     \ 'colorscheme': 'Tomorrow',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'anzu' ] ]
     \ },
     \ 'inactive': {
     \   'left': [ [ 'mode', 'paste' ],
@@ -103,7 +103,8 @@ hook_add = '''
     \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'fugitive#head'
+    \   'gitbranch': 'fugitive#head',
+    \   'anzu': 'anzu#search_status'
     \ },
   \ }
 
@@ -150,5 +151,21 @@ hook_add = '''
   tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
   tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
   tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+  nmap n <Plug>(anzu-n)zz
+  nmap N <Plug>(anzu-N)zz
+  nmap * <Plug>(anzu-star)zz
+  nmap # <Plug>(anzu-sharp)zz
+  set updatetime=2000
+  " 一定時間キー入力がないとき、ウインドウを移動したとき、タブを移動したときに
+  " 検索ヒット数の表示を消去する
+  augroup vim-anzu
+    autocmd!
+    autocmd CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
+  augroup END
 '''
 
