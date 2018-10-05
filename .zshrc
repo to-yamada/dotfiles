@@ -45,6 +45,7 @@ darwin*)
   alias ls='ls -FG'
   alias la='ls -laG'
   alias ll='ls -lg'
+  alias brew="env PATH=${PATH##$(pyenv root)/shims:} brew"
   ;;
 linux*)
   alias ls='ls -F --color=auto'
