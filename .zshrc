@@ -144,3 +144,6 @@ if [ -d ${HOME}/.pyenv ]; then
   eval "$(pyenv init -)"
 fi
 
+# pipenv
+export PIPENV_VENV_IN_PROJECT=true
+
