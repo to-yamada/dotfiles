@@ -198,8 +198,7 @@ cnoremap <C-n> <Down>
 
 " https://qiita.com/itmammoth/items/312246b4b7688875d023 より
 " カーソル下の単語をハイライトしてから置換する
-nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-nmap # <Space><Space>:%s/<C-r>///g<Left><Left>
+nnoremap # "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>:%s/<C-r>///g<Left><Left>
 
 " https://qiita.com/itmammoth/items/312246b4b7688875d023 より
 " ハイライトを消去する
