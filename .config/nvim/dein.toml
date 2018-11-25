@@ -2,6 +2,9 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   " denite キー
@@ -16,7 +19,7 @@ hook_add = '''
     \ :<C-u>Denite grep:::<C-r><C-w>
     \ -no-empty -mode=normal<CR>
 
-  " [denite]<C-n> で検索結果を開き直す
+  " [denite]<C-r> で検索結果を開き直す
   nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
     \ -no-empty -mode=normal<CR>
 
@@ -30,6 +33,10 @@ hook_add = '''
 
   " [denite]<C-f> でファイル一覧
   nnoremap <silent> [denite]<C-f> :<C-u>Denite file/rec
+    \ -no-empty<CR>
+
+  " [denite]<C-l> で最近開いたファイル一覧
+  nnoremap <silent> [denite]<C-l> :<C-u>Denite file_mru
     \ -no-empty<CR>
 
   " [denite]<C-d> で dotfiles 編集
@@ -89,6 +96,7 @@ hook_add = '''
   nnoremap <silent> [fugitive]<C-a> :Gwrite<CR>
   nnoremap <silent> [fugitive]<C-b> :Gblame<CR>
   nnoremap <silent> [fugitive]<C-m> :Gmerge<CR>
+  nnoremap <silent> [fugitive]<C-g> :Ggrep<CR>
 '''
 
 [[plugins]]
