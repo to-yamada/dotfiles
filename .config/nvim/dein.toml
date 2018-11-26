@@ -2,9 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   " denite キー
@@ -35,8 +32,8 @@ hook_add = '''
   nnoremap <silent> [denite]<C-f> :<C-u>Denite file/rec
     \ -no-empty<CR>
 
-  " [denite]<C-l> で最近開いたファイル一覧
-  nnoremap <silent> [denite]<C-l> :<C-u>Denite file_mru
+  " [denite]<C-o> で oldfiles 一覧
+  nnoremap <silent> [denite]<C-o> :<C-u>Denite file/old
     \ -no-empty<CR>
 
   " [denite]<C-d> で dotfiles 編集
