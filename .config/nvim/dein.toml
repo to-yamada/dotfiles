@@ -8,8 +8,17 @@ hook_add = '''
   noremap [denite] <Nop>
   nmap <C-d> [denite]
 
+  " s で split
+  call denite#custom#map('normal', "s", '<denite:do_action:split>')
+
   " v で vsplit
   call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
+
+  " insert モードで <C-s> で split
+  call denite#custom#map('insert', "<C-s>", '<denite:do_action:split>')
+
+  " insert モードで <C-v> で vsplit
+  call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
 
   " [denite]<C-k> で単語単位での grep
   nnoremap <silent> [denite]<C-k>
