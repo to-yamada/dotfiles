@@ -28,8 +28,8 @@ hook_add = '''
   nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume
     \ -cursor-pos=-1 -immediately<CR>
 
-  " [denite]<C-f> でファイル一覧
-  nnoremap <silent> [denite]<C-f> :<C-u>Denite file/rec
+  " [denite]<C-f> でプロジェクトファイル一覧
+  nnoremap <silent> [denite]<C-f> :<C-u>DeniteProjectDir file/rec
     \ -no-empty<CR>
 
   " [denite]<C-o> で oldfiles 一覧
