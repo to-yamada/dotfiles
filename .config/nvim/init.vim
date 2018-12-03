@@ -5,7 +5,9 @@ endif
 "---------------------------------------------------------------------------
 " python3
 "---------------------------------------------------------------------------
-if !has("win32")
+if has("win32")
+  let g:python3_host_prog = expand('~/AppData/Local/Programs/Python/Python37-32/python')
+else
   let g:python3_host_prog = $PYENV_ROOT . '/versions/3.7.1/bin/python3'
 endif
 
