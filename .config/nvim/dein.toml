@@ -2,6 +2,18 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
+hook_add = '''
+  set t_Co=256
+  au DeinAutoCmd VimEnter * nested colorscheme Tomorrow-Night-Bright
+  " vimdiffの色設定
+  au DeinAutoCmd VimEnter * highlight DiffAdd    ctermbg=22
+  au DeinAutoCmd VimEnter * highlight DiffDelete ctermbg=52
+  au DeinAutoCmd VimEnter * highlight DiffChange ctermbg=17
+  au DeinAutoCmd VimEnter * highlight DiffText   ctermbg=21
+'''
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   " denite キー
@@ -74,9 +86,6 @@ hook_add = '''
   map p <Plug>(miniyank-autoput)
   map P <Plug>(miniyank-autoPut)
 '''
-
-[[plugins]]
-repo = 'chriskempson/vim-tomorrow-theme'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'

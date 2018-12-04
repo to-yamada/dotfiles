@@ -14,6 +14,11 @@ endif
 "---------------------------------------------------------------------------
 " dein
 "---------------------------------------------------------------------------
+" reset augroup
+augroup DeinAutoCmd
+    autocmd!
+augroup END
+
 let s:cache_home = empty($XDG_CACHE_HOME) ?
   \ expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
@@ -39,6 +44,7 @@ if dein#load_state(s:dein_dir)
 endif
 
 filetype plugin indent on
+syntax enable
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
@@ -79,18 +85,6 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
-
-"---------------------------------------------------------------------------
-" 色
-"---------------------------------------------------------------------------
-syntax on
-set t_Co=256
-colorscheme Tomorrow-Night-Bright
-" vimdiffの色設定
-highlight DiffAdd    ctermbg=22
-highlight DiffDelete ctermbg=52
-highlight DiffChange ctermbg=17
-highlight DiffText   ctermbg=21
 
 "-------------------------------------------------------------------------------
 " 最後にカーソルがあった場所へカーソルを移動
