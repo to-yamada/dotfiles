@@ -14,6 +14,16 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'bfredl/nvim-miniyank'
+hook_add = '''
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+'''
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   " denite キー
@@ -75,16 +85,6 @@ hook_add = '''
     call denite#custom#var('grep', 'default_opts', [])
     call denite#custom#var('grep', 'recursive_opts', [])
   endif
-'''
-
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = 'bfredl/nvim-miniyank'
-hook_add = '''
-  map p <Plug>(miniyank-autoput)
-  map P <Plug>(miniyank-autoPut)
 '''
 
 [[plugins]]

@@ -206,6 +206,9 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <C-j> ]czz
 nnoremap <C-k> [czz
 
+"---------------------------------------------------------------------------
+" プロジェクト固有の設定読み込み(.vimrc.local)
+"---------------------------------------------------------------------------
 " Load settings for each location.
 " https://vim-jp.org/vim-users-jp/2009/12/27/Hack-112.html
 augroup vimrc-local
