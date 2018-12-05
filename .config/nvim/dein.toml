@@ -63,6 +63,14 @@ hook_add = '''
   nnoremap <silent> [denite]<C-f> :<C-u>DeniteProjectDir file/rec
     \ -no-empty<CR>
 
+  " [denite]<C-s> でプロジェクトファイル一覧(default-action: split)
+  nnoremap <silent> [denite]<C-s> :<C-u>DeniteProjectDir file/rec
+    \ -no-empty -default-action=split<CR>
+
+  " [denite]<C-v> でプロジェクトファイル一覧(default-action: vsplit)
+  nnoremap <silent> [denite]<C-v> :<C-u>DeniteProjectDir file/rec
+    \ -no-empty -default-action=vsplit<CR>
+
   " [denite]<C-o> で oldfiles 一覧
   nnoremap <silent> [denite]<C-o> :<C-u>Denite file/old
     \ -no-empty<CR>
