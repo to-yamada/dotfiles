@@ -109,6 +109,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  au DeinAutoCmd VimEnter * set updatetime=100
+'''
+
+[[plugins]]
 repo = 'tpope/vim-rails'
 
 [[plugins]]
