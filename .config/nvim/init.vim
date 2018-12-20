@@ -203,8 +203,8 @@ nnoremap # "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>:%s/<C-r>///g<Lef
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " diff は C-j, C-k で移動
-nnoremap <C-j> ]czz
-nnoremap <C-k> [czz
+nmap <C-j> ]czz
+nmap <C-k> [czz
 
 "---------------------------------------------------------------------------
 " プロジェクト固有の設定読み込み(.vimrc.local)
