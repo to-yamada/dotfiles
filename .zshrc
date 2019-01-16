@@ -57,8 +57,6 @@ alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
-alias vi='nvim'
-alias vim='nvim'
 alias b='bundle exec'
 alias r='bundle exec rails'
 
