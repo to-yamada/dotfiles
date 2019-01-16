@@ -72,6 +72,8 @@ zstyle ':zle:*' word-style unspecified
 
 # Ctrl+sのロック, Ctrl+qのロック解除を無効にする
 setopt no_flow_control
+stty stop undef
+stty start undef
 
 # プロンプトを2行で表示、時刻を表示
 PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~
