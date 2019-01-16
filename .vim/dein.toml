@@ -70,7 +70,7 @@ hook_add = '''
 
   " [denite]<C-d> で dotfiles 編集
   nnoremap <silent> [denite]<C-d> :<C-u>call denite#start(
-    \ [{'name': 'file_rec', 'args': ['~/dotfiles']}]) -highlight-mode-insert=Search<CR>
+    \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 
   " ripgrep 使用
   if executable('rg')
