@@ -1,0 +1,4 @@
+" defaults.vim の読み込み
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
