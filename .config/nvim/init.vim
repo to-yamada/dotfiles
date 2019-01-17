@@ -1,7 +1,3 @@
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
 "---------------------------------------------------------------------------
 " python3
 "---------------------------------------------------------------------------
@@ -107,12 +103,6 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-" 自動的にインデントする
-set autoindent
-
-" バックスペースでインデントや改行を削除できるようにする
-set backspace=indent,eol,start
-
 " 検索時にファイルの最後まで行ったら最初に戻る
 set wrapscan
 
@@ -158,9 +148,6 @@ set list
 " 長い行は折り返さないで表示
 set nowrap
 
-" コマンドをステータス行に表示
-set showcmd
-
 " タイトルを表示
 set title
 
@@ -172,9 +159,6 @@ set ttimeoutlen=10
 
 " バックアップファイルを作成しない
 set nobackup
-
-" 履歴
-set history=50
 
 "---------------------------------------------------------------------------
 " キーバインド
