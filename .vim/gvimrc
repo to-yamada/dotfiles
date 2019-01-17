@@ -1,0 +1,16 @@
+" font 設定
+set guifont=Cica:h14
+set renderoptions=type:directx,renmode:5
+
+" window サイズ
+set columns=100
+set lines=40
+
+" メニューの文字化け対策
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
+
+" ツールバーは非表示
+set guioptions-=T
+
