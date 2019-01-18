@@ -134,7 +134,7 @@ set cursorline
 
 " タブや改行を表示
 " どの文字でタブや改行を表示するかを設定
-set listchars=tab:»\ ,space:␣,nbsp:%,extends:>,precedes:<,eol:$
+set listchars=tab:»\ ,nbsp:%,extends:>,precedes:<,eol:$
 set list
 
 " 長い行は折り返さないで表示
