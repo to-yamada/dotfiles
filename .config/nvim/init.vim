@@ -11,8 +11,8 @@ endif
 " dein
 "---------------------------------------------------------------------------
 " reset augroup
-augroup DeinAutoCmd
-    autocmd!
+augroup myinit
+  autocmd!
 augroup END
 
 let s:cache_home = empty($XDG_CACHE_HOME) ?
@@ -65,14 +65,12 @@ set encoding=utf-8
 set fileencodings=ucs-bom,iso-2022-jp-3,utf-8,cp932,euc-jisx0213,euc-jp
 
 " 日本語を含まない場合は fileencoding に encoding を使うようにする
-if has('autocmd')
-  function! AU_ReCheck_FENC()
-    if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-      let &fileencoding=&encoding
-    endif
-  endfunction
-  autocmd BufReadPost * call AU_ReCheck_FENC()
-endif
+function! AU_ReCheck_FENC()
+  if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+    let &fileencoding=&encoding
+  endif
+endfunction
+autocmd myinit BufReadPost * call AU_ReCheck_FENC()
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -85,14 +83,10 @@ endif
 "-------------------------------------------------------------------------------
 " 最後にカーソルがあった場所へカーソルを移動
 "-------------------------------------------------------------------------------
-if has("autocmd")
-  augroup vimrcEx
-    autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-  augroup END
-endif
+autocmd myinit BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
 
 "---------------------------------------------------------------------------
 " 共通の設定
@@ -195,14 +189,10 @@ nmap <C-k> [czz
 "---------------------------------------------------------------------------
 " Load settings for each location.
 " https://vim-jp.org/vim-users-jp/2009/12/27/Hack-112.html
-augroup vimrc-local
-  autocmd!
-  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
-augroup END
-
 function! s:vimrc_local(loc)
   let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
   for i in reverse(filter(files, 'filereadable(v:val)'))
     source `=i`
   endfor
 endfunction
+autocmd myinit BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
