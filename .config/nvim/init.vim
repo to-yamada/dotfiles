@@ -17,7 +17,7 @@ augroup END
 
 let s:cache_home = empty($XDG_CACHE_HOME) ?
   \ expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
+let s:dein_dir = s:cache_home . '/dein_nvim'
 let s:dein_repo_path = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 "deinがinstallされてなければgit clone
 if !isdirectory(s:dein_repo_path)
