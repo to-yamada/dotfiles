@@ -7,7 +7,7 @@ source $VIMRUNTIME/defaults.vim
 "---------------------------------------------------------------------------
 " 初期化まわりで使用する autocmd を初期化
 "---------------------------------------------------------------------------
-augroup MyInit
+augroup myinit
   autocmd!
 augroup END
 
@@ -68,7 +68,7 @@ if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
   let &fileencoding=&encoding
 endif
 endfunction
-autocmd MyInit BufReadPost * call AU_ReCheck_FENC()
+autocmd myinit BufReadPost * call AU_ReCheck_FENC()
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -175,5 +175,5 @@ function! s:vimrc_local(loc)
     source `=i`
   endfor
 endfunction
-autocmd MyInit BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+autocmd myinit BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
 

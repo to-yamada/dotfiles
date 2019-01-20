@@ -5,12 +5,12 @@ repo = 'Shougo/dein.vim'
 repo = 'chriskempson/vim-tomorrow-theme'
 hook_add = '''
   set t_Co=256
-  autocmd MyInit VimEnter * nested colorscheme Tomorrow-Night-Bright
+  autocmd myinit VimEnter * nested colorscheme Tomorrow-Night-Bright
   " vimdiffの色設定
-  autocmd MyInit VimEnter * highlight DiffAdd    ctermbg=22
-  autocmd MyInit VimEnter * highlight DiffDelete ctermbg=52
-  autocmd MyInit VimEnter * highlight DiffChange ctermbg=17
-  autocmd MyInit VimEnter * highlight DiffText   ctermbg=21
+  autocmd myinit VimEnter * highlight DiffAdd    ctermbg=22
+  autocmd myinit VimEnter * highlight DiffDelete ctermbg=52
+  autocmd myinit VimEnter * highlight DiffChange ctermbg=17
+  autocmd myinit VimEnter * highlight DiffText   ctermbg=21
 '''
 
 [[plugins]]
@@ -100,7 +100,7 @@ hook_add = '''
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
-  autocmd MyInit VimEnter * set updatetime=100
+  autocmd myinit VimEnter * set updatetime=100
 '''
 
 [[plugins]]
@@ -218,7 +218,7 @@ hook_add = '''
   set updatetime=2000
   " 一定時間キー入力がないとき、ウインドウを移動したとき、タブを移動したときに
   " 検索ヒット数の表示を消去する
-  autocmd MyInit CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
+  autocmd myinit CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
 '''
 
 [[plugins]]
