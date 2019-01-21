@@ -69,9 +69,9 @@ set fileencodings=ucs-bom,iso-2022-jp-3,utf-8,cp932,euc-jisx0213,euc-jp
 
 " 日本語を含まない場合は fileencoding に encoding を使うようにする
 function! AU_ReCheck_FENC()
-if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-  let &fileencoding=&encoding
-endif
+  if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+    let &fileencoding=&encoding
+  endif
 endfunction
 autocmd myinit BufReadPost * call AU_ReCheck_FENC()
 
