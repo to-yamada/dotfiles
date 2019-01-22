@@ -14,13 +14,15 @@ else
 endif
 
 "---------------------------------------------------------------------------
-" dein
+" 初期化まわりで使用する autocmd を初期化
 "---------------------------------------------------------------------------
-" reset augroup
 augroup myinit
   autocmd!
 augroup END
 
+"---------------------------------------------------------------------------
+" dein
+"---------------------------------------------------------------------------
 let s:cache_home = empty($XDG_CACHE_HOME) ?
   \ expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein_nvim'
@@ -80,7 +82,7 @@ autocmd myinit BufReadPost * call AU_ReCheck_FENC()
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
 
-" □とか○の文字があってもカーソル位置がずれないようにする
+" □とかの文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
@@ -201,3 +203,4 @@ function! s:vimrc_local(loc)
   endfor
 endfunction
 autocmd myinit BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+
