@@ -107,9 +107,6 @@ set formatoptions+=mM
 " クリップボードの共有
 set clipboard=unnamed
 
-" クリップボードの共有
-set clipboard=unnamed
-
 " 矩形選択時はカーソルを文字がないところにも移動できるようにする
 set virtualedit=block
 
