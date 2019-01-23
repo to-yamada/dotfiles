@@ -17,6 +17,12 @@ hook_add = '''
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
+repo = 'sheerun/vim-polyglot'
+hook_add = '''
+  let g:polyglot_disabled = []
+'''
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   " denite キー
