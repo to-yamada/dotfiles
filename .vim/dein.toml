@@ -44,11 +44,11 @@ hook_add = '''
   " [denite]<C-k> で単語単位での grep
   nnoremap <silent> [denite]<C-k>
     \ :<C-u>Denite grep:::<C-r><C-w>
-    \ -no-empty -mode=normal -highlight-mode-insert=Search<CR>
+    \ -no-empty -mode=normal -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-r> で検索結果を開き直す
   nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
-    \ -no-empty -mode=normal -highlight-mode-insert=Search<CR>
+    \ -no-empty -mode=normal -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-n> で次の検索結果へ
   nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
@@ -60,19 +60,19 @@ hook_add = '''
 
   " [denite]<C-f> でプロジェクトファイル一覧
   nnoremap <silent> [denite]<C-f> :<C-u>DeniteProjectDir file/rec
-    \ -no-empty -highlight-mode-insert=Search<CR>
+    \ -no-empty -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-s> でプロジェクトファイル一覧(default-action: split)
   nnoremap <silent> [denite]<C-s> :<C-u>DeniteProjectDir file/rec
-    \ -no-empty -default-action=split -highlight-mode-insert=Search<CR>
+    \ -no-empty -default-action=split -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-v> でプロジェクトファイル一覧(default-action: vsplit)
   nnoremap <silent> [denite]<C-v> :<C-u>DeniteProjectDir file/rec
-    \ -no-empty -default-action=vsplit -highlight-mode-insert=Search<CR>
+    \ -no-empty -default-action=vsplit -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-o> で oldfiles 一覧
   nnoremap <silent> [denite]<C-o> :<C-u>Denite file/old
-    \ -no-empty -highlight-mode-insert=Search<CR>
+    \ -no-empty -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-d> で dotfiles 編集
   nnoremap <silent> [denite]<C-d> :<C-u>call denite#start(
