@@ -7,10 +7,10 @@ hook_add = '''
   set t_Co=256
   autocmd myinit VimEnter * nested colorscheme Tomorrow-Night-Bright
   " vimdiffの色設定
-  autocmd myinit VimEnter * highlight DiffAdd    ctermbg=22
-  autocmd myinit VimEnter * highlight DiffDelete ctermbg=52
-  autocmd myinit VimEnter * highlight DiffChange ctermbg=17
-  autocmd myinit VimEnter * highlight DiffText   ctermbg=21
+  autocmd myinit ColorScheme * highlight DiffAdd    ctermbg=22
+  autocmd myinit ColorScheme * highlight DiffDelete ctermbg=52
+  autocmd myinit ColorScheme * highlight DiffChange ctermbg=17
+  autocmd myinit ColorScheme * highlight DiffText   ctermbg=21
 '''
 
 [[plugins]]
