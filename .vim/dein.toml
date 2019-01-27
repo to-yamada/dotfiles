@@ -2,10 +2,16 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'chriskempson/vim-tomorrow-theme'
+repo = 'nanotech/jellybeans.vim'
 hook_add = '''
   set t_Co=256
-  autocmd myinit VimEnter * nested colorscheme Tomorrow-Night-Bright
+  let g:jellybeans_use_term_italics = 0
+  let g:jellybeans_overrides = {
+  \  'background': { 'guibg': '000000' },
+  \  'SpecialKey': { 'guifg': '202020', 'guibg': '000000' },
+  \  'NonText':    { 'guifg': '202020', 'guibg': '000000' },
+  \}
+  autocmd myinit VimEnter * nested colorscheme jellybeans
   " vimdiffの色設定
   autocmd myinit ColorScheme * highlight DiffAdd    ctermbg=22
   autocmd myinit ColorScheme * highlight DiffDelete ctermbg=52
