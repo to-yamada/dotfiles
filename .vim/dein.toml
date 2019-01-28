@@ -6,6 +6,7 @@ repo = 'nanotech/jellybeans.vim'
 hook_add = '''
   set t_Co=256
   let g:jellybeans_use_term_italics = 0
+  let g:jellybeans_use_gui_italics = 0
   let g:jellybeans_overrides = {
   \  'background': { 'guibg': '000000' },
   \  'SpecialKey': { 'guifg': '303030', 'guibg': '000000' },
