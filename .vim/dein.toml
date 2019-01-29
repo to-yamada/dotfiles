@@ -30,12 +30,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-hook_add = '''
-  let g:ctrlp_match_window = 'buttom,order:ttb,min:5,max:5,results:0'
-'''
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   " denite キー
