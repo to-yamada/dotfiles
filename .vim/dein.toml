@@ -8,10 +8,10 @@ hook_add = '''
   let g:jellybeans_use_term_italics = 0
   let g:jellybeans_use_gui_italics = 0
   let g:jellybeans_overrides = {
-  \  'background': { 'guibg': '000000' },
-  \  'SpecialKey': { 'guifg': '303030', 'guibg': '000000' },
-  \  'NonText':    { 'guifg': '303030', 'guibg': '000000' },
-  \}
+  \   'background': { 'guibg': '000000' },
+  \   'SpecialKey': { 'guifg': '303030', 'guibg': '000000' },
+  \   'NonText':    { 'guifg': '303030', 'guibg': '000000' },
+  \ }
   autocmd myinit VimEnter * nested colorscheme jellybeans
   " vimdiffの色設定
   autocmd myinit ColorScheme * highlight DiffAdd    ctermbg=22
@@ -50,48 +50,48 @@ hook_add = '''
 
   " [denite]<C-k> で単語単位での grep
   nnoremap <silent> [denite]<C-k>
-    \ :<C-u>Denite grep:::<C-r><C-w>
-    \ -no-empty -mode=normal -highlight-mode-insert=Clear<CR>
+  \ :<C-u>Denite grep:::<C-r><C-w>
+  \ -no-empty -mode=normal -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-r> で検索結果を開き直す
   nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
-    \ -no-empty -mode=normal -highlight-mode-insert=Clear<CR>
+  \ -no-empty -mode=normal -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-n> で次の検索結果へ
   nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
-    \ -cursor-pos=+1 -immediately<CR>
+  \ -cursor-pos=+1 -immediately<CR>
 
   " [denite]<C-p> で前の検索結果へ
   nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume
-    \ -cursor-pos=-1 -immediately<CR>
+  \ -cursor-pos=-1 -immediately<CR>
 
   " [denite]<C-f> でプロジェクトファイル一覧
   nnoremap <silent> [denite]<C-f> :<C-u>DeniteProjectDir file/rec
-    \ -no-empty -highlight-mode-insert=Clear<CR>
+  \ -no-empty -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-s> でプロジェクトファイル一覧(default-action: split)
   nnoremap <silent> [denite]<C-s> :<C-u>DeniteProjectDir file/rec
-    \ -no-empty -default-action=split -highlight-mode-insert=Clear<CR>
+  \ -no-empty -default-action=split -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-v> でプロジェクトファイル一覧(default-action: vsplit)
   nnoremap <silent> [denite]<C-v> :<C-u>DeniteProjectDir file/rec
-    \ -no-empty -default-action=vsplit -highlight-mode-insert=Clear<CR>
+  \ -no-empty -default-action=vsplit -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-o> で oldfiles 一覧
   nnoremap <silent> [denite]<C-o> :<C-u>Denite file/old
-    \ -no-empty -highlight-mode-insert=Clear<CR>
+  \ -no-empty -highlight-mode-insert=Clear<CR>
 
   " [denite]<C-d> で dotfiles 編集
   nnoremap <silent> [denite]<C-d> :<C-u>call denite#start(
-    \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
+  \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 
   " ripgrep 使用
   if executable('rg')
     call denite#custom#var('file/rec', 'command',
-      \ ['rg', '--files', '--glob', '!.git'])
+    \ ['rg', '--files', '--glob', '!.git'])
 
     call denite#custom#var('grep', 'command',
-      \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
+    \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
     call denite#custom#var('grep', 'default_opts', [])
     call denite#custom#var('grep', 'recursive_opts', [])
   endif
@@ -126,10 +126,10 @@ hook_add='''
     augroup LspCpp
       au!
       autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'clangd',
-          \ 'cmd': {server_info->['clangd']},
-          \ 'whitelist': ['c', 'cpp'],
-          \ })
+      \   'name': 'clangd',
+      \   'cmd': {server_info->['clangd']},
+      \   'whitelist': ['c', 'cpp'],
+      \ })
       autocmd FileType c setlocal omnifunc=lsp#complete
       autocmd FileType cpp setlocal omnifunc=lsp#complete
     augroup END
@@ -139,11 +139,11 @@ hook_add='''
     augroup LspRuby
       au!
       autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['ruby'],
-        \ })
+      \   'name': 'solargraph',
+      \   'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+      \   'initialization_options': {"diagnostics": "true"},
+      \   'whitelist': ['ruby'],
+      \ })
       autocmd FileType ruby setlocal omnifunc=lsp#complete
     augroup END
   endif
@@ -158,22 +158,22 @@ repo = 'tpope/vim-rails'
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'anzu' ] ]
-    \ },
-    \ 'inactive': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ [ 'lineinfo' ],
-    \              [ 'percent' ],
-    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'fugitive#head',
-    \   'anzu': 'anzu#search_status'
-    \ },
+  \   'colorscheme': 'jellybeans',
+  \   'active': {
+  \     'left': [ [ 'mode', 'paste' ],
+  \               [ 'gitbranch', 'readonly', 'filename', 'modified', 'anzu' ] ]
+  \   },
+  \   'inactive': {
+  \     'left': [ [ 'mode', 'paste' ],
+  \               [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \     'right': [ [ 'lineinfo' ],
+  \                [ 'percent' ],
+  \                [ 'fileformat', 'fileencoding', 'filetype' ] ]
+  \   },
+  \   'component_function': {
+  \     'gitbranch': 'fugitive#head',
+  \     'anzu': 'anzu#search_status'
+  \   },
   \ }
 
   " show statusbar
@@ -235,9 +235,9 @@ hook_add = '''
 
   " C-l でハイライト、検索ヒット数の表示を消去
   nnoremap <silent> <C-l> 
-  \  :<C-u>nohlsearch<CR>
-  \  :<C-u>call anzu#clear_search_status()<CR>
-  \  <C-l>
+  \ :<C-u>nohlsearch<CR>
+  \ :<C-u>call anzu#clear_search_status()<CR>
+  \ <C-l>
 '''
 
 [[plugins]]
