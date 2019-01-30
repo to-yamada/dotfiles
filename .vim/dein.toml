@@ -228,9 +228,16 @@ hook_add = '''
   nmap N <Plug>(anzu-N)zz
   nmap * <Plug>(anzu-star)zz
   nmap # <Plug>(anzu-sharp)zz
-  " 一定時間キー入力がないとき、ウインドウを移動したとき、タブを移動したときに
+
+  " ウインドウを移動したとき、タブを移動したときに
   " 検索ヒット数の表示を消去する
-  autocmd myinit CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
+  autocmd myinit WinLeave,TabLeave * call anzu#clear_search_status()
+
+  " C-l でハイライト、検索ヒット数の表示を消去
+  nnoremap <silent> <C-l> 
+  \  :<C-u>nohlsearch<CR>
+  \  :<C-u>call anzu#clear_search_status()<CR>
+  \  <C-l>
 '''
 
 [[plugins]]

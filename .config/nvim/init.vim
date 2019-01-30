@@ -183,10 +183,6 @@ cnoremap <C-n> <Down>
 " カーソル下の単語をハイライトしてから置換する
 nnoremap # "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>:%s/<C-r>///g<Left><Left>
 
-" https://qiita.com/itmammoth/items/312246b4b7688875d023 より
-" ハイライトを消去する
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
 " diff は C-j, C-k で移動
 nmap <C-j> ]czz
 nmap <C-k> [czz
