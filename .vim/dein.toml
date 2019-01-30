@@ -158,7 +158,7 @@ repo = 'tpope/vim-rails'
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   let g:lightline = {
-    \ 'colorscheme': 'Tomorrow',
+    \ 'colorscheme': 'jellybeans',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'anzu' ] ]
