@@ -113,7 +113,7 @@ hook_add = '''
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
-  autocmd myinit VimEnter * set updatetime=100
+  set updatetime=100
 '''
 
 [[plugins]]
@@ -228,7 +228,6 @@ hook_add = '''
   nmap N <Plug>(anzu-N)zz
   nmap * <Plug>(anzu-star)zz
   nmap # <Plug>(anzu-sharp)zz
-  set updatetime=2000
   " 一定時間キー入力がないとき、ウインドウを移動したとき、タブを移動したときに
   " 検索ヒット数の表示を消去する
   autocmd myinit CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
