@@ -14,3 +14,5 @@ source $VIMRUNTIME/menu.vim
 " ツールバーは非表示
 set guioptions-=T
 
+" IME の状態によってカーソル色を変更
+autocmd myinit ColorScheme * highlight CursorIM guifg=NONE guibg=Purple
