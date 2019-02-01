@@ -48,6 +48,12 @@ hook_add = '''
   " insert モードで <C-v> で vsplit
   call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
 
+  " C-j, C-k で上下移動
+  call denite#custom#map('normal', '<C-j>', '<denite:move_to_next_line>')
+  call denite#custom#map('normal', '<C-k>', '<denite:move_to_previous_line>')
+  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
+  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
+
   " [denite]<C-k> で単語単位での grep
   nnoremap <silent> [denite]<C-k>
   \ :<C-u>Denite grep:::<C-r><C-w>
