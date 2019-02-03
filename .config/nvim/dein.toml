@@ -110,20 +110,20 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-  nnoremap [fugitive]  <Nop>
-  nmap <C-g> [fugitive]
-  nnoremap <silent> [fugitive]<C-s> :Gstatus<CR><C-w>T
-  nnoremap <silent> [fugitive]<C-d> :Gvdiff<CR>
-  nnoremap <silent> [fugitive]<C-a> :Gwrite<CR>
-  nnoremap <silent> [fugitive]<C-b> :Gblame<CR>
-  nnoremap <silent> [fugitive]<C-m> :Gmerge<CR>
-  nnoremap <silent> [fugitive]<C-g> :Ggrep<CR>
+  nnoremap [git]  <Nop>
+  nmap <C-g> [git]
+  nnoremap <silent> [git]<C-s> :Gstatus<CR><C-w>T
+  nnoremap <silent> [git]<C-d> :Gvdiff<CR>
+  nnoremap <silent> [git]<C-b> :Gblame<CR>
+  nnoremap <silent> [git]<C-m> :Gmerge<CR>
 '''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
   set updatetime=100
+  nmap [git]<C-g> <Plug>GitGutterStageHunk
+  nmap [git]<C-u> <Plug>GitGutterUndoHunk
 '''
 
 [[plugins]]
