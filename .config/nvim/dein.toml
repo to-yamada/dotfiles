@@ -115,7 +115,7 @@ hook_add = '''
   nnoremap <silent> [git]<C-s> :Gstatus<CR><C-w>T
   nnoremap <silent> [git]<C-d> :Gvdiff<CR>
   nnoremap <silent> [git]<C-b> :Gblame<CR>
-  nnoremap <silent> [git]<C-m> :Gmerge<CR>
+  nnoremap <silent> [git]c :Gcommit-v<CR>
 '''
 
 [[plugins]]
