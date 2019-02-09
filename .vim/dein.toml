@@ -108,7 +108,7 @@ repo = 'tpope/vim-fugitive'
 hook_add = '''
   nnoremap [git]  <Nop>
   nmap <Space>g [git]
-  nnoremap <silent> [git]s :Gstatus<CR><C-w>T
+  nnoremap <silent> [git]s :Gstatus<CR>
   nnoremap <silent> [git]d :Gvdiff<CR>
   nnoremap <silent> [git]b :Gblame<CR>
   nnoremap <silent> [git]c :Gcommit-v<CR>
