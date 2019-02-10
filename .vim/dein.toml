@@ -123,9 +123,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'rhysd/committia.vim'
-
-[[plugins]]
 repo='prabirshrestha/async.vim'
 
 [[plugins]]
