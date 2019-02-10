@@ -232,6 +232,8 @@
 	AQgRGiMtMjc7QUhOW2KAgoSJlJ2lqLHDxssAAAAAAAABAQAAAAAAAAAZAAAAAAAAAAAA
 	AAAAAAAAzQ==
 	</data>
+	<key>EastAsianAmbiguousWide</key>
+	<true/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -278,7 +280,7 @@
 	<key>name</key>
 	<string>Jellybeans</string>
 	<key>rowCount</key>
-	<integer>38</integer>
+	<integer>47</integer>
 	<key>shellExitAction</key>
 	<integer>1</integer>
 	<key>type</key>
