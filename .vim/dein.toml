@@ -46,7 +46,7 @@ hook_add = '''
 
   " <Space>k で単語単位での grep
   nnoremap <silent> <Space>k
-  \ :<C-u>Denite grep:::<C-r><C-w>
+  \ :<C-u>DeniteProjectDir grep:::<C-r><C-w>
   \ -no-empty -mode=normal<CR>
 
   " <Space>r で検索結果を開き直す
