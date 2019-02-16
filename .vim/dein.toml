@@ -32,21 +32,11 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  " denite キー
-  noremap [denite] <Nop>
-  nmap <Space>d [denite]
-
   " s で split
   call denite#custom#map('normal', "s", '<denite:do_action:split>')
 
   " v で vsplit
   call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
-
-  " insert モードで <C-s> で split
-  call denite#custom#map('insert', "<C-s>", '<denite:do_action:split>')
-
-  " insert モードで <C-v> で vsplit
-  call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
 
   " C-j, C-k で上下移動
   call denite#custom#map('normal', '<C-j>', '<denite:move_to_next_line>')
@@ -54,41 +44,33 @@ hook_add = '''
   call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
   call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
 
-  " [denite]k で単語単位での grep
-  nnoremap <silent> [denite]k
-  \ :<C-u>Denite grep:::<C-r><C-w>
+  " <Space>k で単語単位での grep
+  nnoremap <silent> <Space>k
+  \ :<C-u>DeniteProjectDir grep:::<C-r><C-w>
   \ -no-empty -mode=normal<CR>
 
-  " [denite]r で検索結果を開き直す
-  nnoremap <silent> [denite]r :<C-u>Denite -resume
+  " <Space>r で検索結果を開き直す
+  nnoremap <silent> <Space>r :<C-u>Denite -resume
   \ -no-empty -mode=normal<CR>
 
-  " [denite]n で次の検索結果へ
-  nnoremap <silent> [denite]n :<C-u>Denite -resume
+  " <Space>n で次の検索結果へ
+  nnoremap <silent> <Space>n :<C-u>Denite -resume
   \ -cursor-pos=+1 -immediately<CR>
 
-  " [denite]p で前の検索結果へ
-  nnoremap <silent> [denite]p :<C-u>Denite -resume
+  " <Space>p で前の検索結果へ
+  nnoremap <silent> <Space>p :<C-u>Denite -resume
   \ -cursor-pos=-1 -immediately<CR>
 
-  " [denite]f でプロジェクトファイル一覧
-  nnoremap <silent> [denite]f :<C-u>DeniteProjectDir file/rec
+  " <Space>f でプロジェクトファイル一覧
+  nnoremap <silent> <Space>f :<C-u>DeniteProjectDir file/rec
   \ -no-empty<CR>
 
-  " [denite]s でプロジェクトファイル一覧(default-action: split)
-  nnoremap <silent> [denite]s :<C-u>DeniteProjectDir file/rec
-  \ -no-empty -default-action=split<CR>
-
-  " [denite]v でプロジェクトファイル一覧(default-action: vsplit)
-  nnoremap <silent> [denite]v :<C-u>DeniteProjectDir file/rec
-  \ -no-empty -default-action=vsplit<CR>
-
-  " [denite]o で oldfiles 一覧
-  nnoremap <silent> [denite]o :<C-u>Denite file/old
+  " <Space>o で oldfiles 一覧
+  nnoremap <silent> <Space>o :<C-u>Denite file/old
   \ -no-empty<CR>
 
-  " [denite]d で dotfiles 編集
-  nnoremap <silent> [denite]d :<C-u>call denite#start(
+  " <Space>d で dotfiles 編集
+  nnoremap <silent> <Space>d :<C-u>call denite#start(
   \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 
   " ripgrep 使用
@@ -190,44 +172,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-  " :Tnew の場合に挿入モードで開始
-  let g:neoterm_autoinsert = 1
-
-  " :T {cmd} 実行時に画面スクロールする
-  let g:neoterm_autoscroll = 1
-
-  "let g:neoterm_default_mod = 'vertical'   " 縦分割
-  let g:neoterm_default_mod = 'belowright'  " 横分割
-
-  " :Tnew 実行
-  nnoremap <silent> <C-e><C-t> :Tnew<CR>
-
-  " :Tnew 実行(縦分割)
-  nnoremap <silent> <C-e><C-v> :vertical Tnew<CR>
-
-  " 現在の行を実行
-  nnoremap <silent> <C-e><C-e> :TREPLSendLine<CR>
-
-  " ビジュアルモードで選択中の行を実行
-  vnoremap <silent> <C-e><C-e> V:TREPLSendSelection<CR>
-
-  " ファイルそのものを実行
-  nnoremap <silent> <C-e><C-f> :TREPLSendFile<CR>
-
-  " <Esc> で terminal-mode を抜ける
-  tnoremap <Esc> <C-\><C-n>
-
-  " <C-w> で ウィンドウ移動
-  tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
-  tnoremap <C-w><C-j> <C-\><C-n><C-w><C-j>
-  tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
-  tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
-  tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
-'''
-
-[[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
   nmap n <Plug>(anzu-n)zz
@@ -249,7 +193,7 @@ hook_add = '''
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
-  let g:winresizer_start_key = '<C-e><C-w>'
+  let g:winresizer_start_key = '<C-w><C-e>'
   let g:winresizer_vert_resize = 1
   let g:winresizer_horiz_resize = 1
 '''
