@@ -9,5 +9,6 @@ set cinoptions=l1,(0,Ws,m1
 
 if executable('rg')
   call denite#custom#var('grep', 'default_opts', ['-ESJIS', '-tc', '-tcpp'])
+  call denite#custom#var('grep/word', 'default_opts', ['-ESJIS', '-tc', '-tcpp'])
 endif
 

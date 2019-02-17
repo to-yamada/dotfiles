@@ -44,9 +44,13 @@ hook_add = '''
   call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
   call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
 
+  " <Space>/ で grep
+  nnoremap <silent> <Space>/
+  \ :<C-u>DeniteProjectDir grep -no-empty -mode=normal<CR>
+
   " <Space>k で単語単位での grep
   nnoremap <silent> <Space>k
-  \ :<C-u>DeniteProjectDir grep:::<C-r><C-w>
+  \ :<C-u>DeniteProjectDir grep/word:::<C-r><C-w>
   \ -no-empty -mode=normal<CR>
 
   " <Space>r で検索結果を開き直す
@@ -79,9 +83,15 @@ hook_add = '''
     \ ['rg', '--files', '--glob', '!.git'])
 
     call denite#custom#var('grep', 'command',
-    \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
+    \ ['rg', '--vimgrep', '--no-heading'])
     call denite#custom#var('grep', 'default_opts', [])
     call denite#custom#var('grep', 'recursive_opts', [])
+
+    call denite#custom#alias('source', 'grep/word', 'grep')
+    call denite#custom#var('grep/word', 'command',
+    \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
+    call denite#custom#var('grep/word', 'default_opts', [])
+    call denite#custom#var('grep/word', 'recursive_opts', [])
   endif
 '''
 
