@@ -92,6 +92,21 @@ hook_add = '''
     \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
     call denite#custom#var('grep/word', 'default_opts', [])
     call denite#custom#var('grep/word', 'recursive_opts', [])
+
+    function! AU_SetRipGrepEncoding()
+      if &fileencoding == 'cp932'
+        call denite#custom#var('grep', 'command',
+        \ ['rg', '--vimgrep', '--no-heading', '-ESJIS'])
+        call denite#custom#var('grep/word', 'command',
+        \ ['rg', '--vimgrep', '--no-heading', '--word-regexp', '-ESJIS'])
+      else
+        call denite#custom#var('grep', 'command',
+        \ ['rg', '--vimgrep', '--no-heading'])
+        call denite#custom#var('grep/word', 'command',
+        \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
+      endif
+    endfunction
+    autocmd myinit BufReadPost * call AU_SetRipGrepEncoding()
   endif
 '''
 
