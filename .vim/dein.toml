@@ -79,20 +79,24 @@ hook_add = '''
 
   " ripgrep 使用
   if executable('rg')
+    " file/rec 探索用
     call denite#custom#var('file/rec', 'command',
     \ ['rg', '--files', '--glob', '!.git'])
 
+    " grep
     call denite#custom#var('grep', 'command',
     \ ['rg', '--vimgrep', '--no-heading'])
     call denite#custom#var('grep', 'default_opts', [])
     call denite#custom#var('grep', 'recursive_opts', [])
 
+    " grep(word単位)
     call denite#custom#alias('source', 'grep/word', 'grep')
     call denite#custom#var('grep/word', 'command',
     \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
     call denite#custom#var('grep/word', 'default_opts', [])
     call denite#custom#var('grep/word', 'recursive_opts', [])
 
+    " 現在の fileencoding に合わせて rg の encoding を変更
     function! AU_SetRipGrepEncoding()
       if &fileencoding == 'cp932'
         call denite#custom#var('grep', 'command',
