@@ -134,6 +134,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'cohama/agit.vim'
+hook_add = '''
+  nnoremap <silent> [git]l :Agit<CR>
+'''
+
+[[plugins]]
 repo='prabirshrestha/async.vim'
 
 [[plugins]]
