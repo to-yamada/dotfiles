@@ -137,6 +137,7 @@ hook_add = '''
 repo = 'cohama/agit.vim'
 hook_add = '''
   nnoremap <silent> [git]l :Agit<CR>
+  nnoremap <silent> [git]f :AgitFile<CR>
 '''
 
 [[plugins]]
