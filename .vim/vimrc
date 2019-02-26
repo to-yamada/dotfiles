@@ -84,6 +84,20 @@ if exists('&ambiwidth')
 endif
 
 "---------------------------------------------------------------------------
+" バイナリ編集モード
+" 参考元: http://d.hatena.ne.jp/rdera/20081022/1224682665
+"---------------------------------------------------------------------------
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary && &modifiable | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | execute "%!xxd -r" | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
+
+"---------------------------------------------------------------------------
 " 共通の設定
 "---------------------------------------------------------------------------
 " タブ
