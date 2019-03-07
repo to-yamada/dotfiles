@@ -46,10 +46,19 @@ hook_add = '''
 
   " <Space>/ で grep
   nnoremap <silent> <Space>/
+  \ :<C-u>Denite grep -no-empty -mode=normal<CR>
+
+  " <Space>p/ で grep(プロジェクト単位)
+  nnoremap <silent> <Space>p/
   \ :<C-u>DeniteProjectDir grep -no-empty -mode=normal<CR>
 
-  " <Space>k で単語単位での grep
+  " <Space>k で単語単位 grep
   nnoremap <silent> <Space>k
+  \ :<C-u>Denite grep/word:::<C-r><C-w>
+  \ -no-empty -mode=normal<CR>
+
+  " <Space>pk で単語単位 grep(プロジェクト単位)
+  nnoremap <silent> <Space>pk
   \ :<C-u>DeniteProjectDir grep/word:::<C-r><C-w>
   \ -no-empty -mode=normal<CR>
 
@@ -61,12 +70,12 @@ hook_add = '''
   nnoremap <silent> <Space>n :<C-u>Denite -resume
   \ -cursor-pos=+1 -immediately<CR>
 
-  " <Space>p で前の検索結果へ
-  nnoremap <silent> <Space>p :<C-u>Denite -resume
-  \ -cursor-pos=-1 -immediately<CR>
+  " <Space>f でファイル一覧
+  nnoremap <silent> <Space>f :<C-u>Denite file/rec
+  \ -no-empty<CR>
 
-  " <Space>f でプロジェクトファイル一覧
-  nnoremap <silent> <Space>f :<C-u>DeniteProjectDir file/rec
+  " <Space>pf でプロジェクトファイル一覧
+  nnoremap <silent> <Space>pf :<C-u>DeniteProjectDir file/rec
   \ -no-empty<CR>
 
   " <Space>o で oldfiles 一覧
