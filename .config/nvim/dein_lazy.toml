@@ -1,0 +1,5 @@
+# ruby 編集時 end を自動で補完
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_i = 1
+on_ft = ['ruby']
