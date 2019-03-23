@@ -32,92 +32,125 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  " denite キー
-  noremap [denite] <Nop>
-  nmap <C-d> [denite]
-
   " s で split
   call denite#custom#map('normal', "s", '<denite:do_action:split>')
 
   " v で vsplit
   call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
 
-  " insert モードで <C-s> で split
-  call denite#custom#map('insert', "<C-s>", '<denite:do_action:split>')
+  " C-j, C-k で上下移動
+  call denite#custom#map('normal', '<C-j>', '<denite:move_to_next_line>')
+  call denite#custom#map('normal', '<C-k>', '<denite:move_to_previous_line>')
+  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
+  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
 
-  " insert モードで <C-v> で vsplit
-  call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
+  " <Space>/ で grep
+  nnoremap <silent> <Space>/
+  \ :<C-u>Denite grep -no-empty -mode=normal<CR>
 
-  " [denite]<C-k> で単語単位での grep
-  nnoremap <silent> [denite]<C-k>
-  \ :<C-u>Denite grep:::<C-r><C-w>
+  " <Space><Space>/ で grep(プロジェクト単位)
+  nnoremap <silent> <Space><Space>/
+  \ :<C-u>DeniteProjectDir grep -no-empty -mode=normal<CR>
+
+  " <Space>k で単語単位 grep
+  nnoremap <silent> <Space>k
+  \ :<C-u>Denite grep/word:::<C-r><C-w>
   \ -no-empty -mode=normal<CR>
 
-  " [denite]<C-r> で検索結果を開き直す
-  nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume
+  " <Space><Space>k で単語単位 grep(プロジェクト単位)
+  nnoremap <silent> <Space><Space>k
+  \ :<C-u>DeniteProjectDir grep/word:::<C-r><C-w>
   \ -no-empty -mode=normal<CR>
 
-  " [denite]<C-n> で次の検索結果へ
-  nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume
+  " <Space>r で検索結果を開き直す
+  nnoremap <silent> <Space>r :<C-u>Denite -resume
+  \ -no-empty -mode=normal<CR>
+
+  " <Space>n で次の検索結果へ
+  nnoremap <silent> <Space>n :<C-u>Denite -resume
   \ -cursor-pos=+1 -immediately<CR>
 
-  " [denite]<C-p> で前の検索結果へ
-  nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume
-  \ -cursor-pos=-1 -immediately<CR>
-
-  " [denite]<C-f> でプロジェクトファイル一覧
-  nnoremap <silent> [denite]<C-f> :<C-u>DeniteProjectDir file/rec
+  " <Space>f でファイル一覧
+  nnoremap <silent> <Space>f :<C-u>Denite file/rec
   \ -no-empty<CR>
 
-  " [denite]<C-s> でプロジェクトファイル一覧(default-action: split)
-  nnoremap <silent> [denite]<C-s> :<C-u>DeniteProjectDir file/rec
-  \ -no-empty -default-action=split<CR>
-
-  " [denite]<C-v> でプロジェクトファイル一覧(default-action: vsplit)
-  nnoremap <silent> [denite]<C-v> :<C-u>DeniteProjectDir file/rec
-  \ -no-empty -default-action=vsplit<CR>
-
-  " [denite]<C-o> で oldfiles 一覧
-  nnoremap <silent> [denite]<C-o> :<C-u>Denite file/old
+  " <Space><Space>f でプロジェクトファイル一覧
+  nnoremap <silent> <Space><Space>f :<C-u>DeniteProjectDir file/rec
   \ -no-empty<CR>
 
-  " [denite]<C-d> で dotfiles 編集
-  nnoremap <silent> [denite]<C-d> :<C-u>call denite#start(
+  " <Space>o で oldfiles 一覧
+  nnoremap <silent> <Space>o :<C-u>Denite file/old
+  \ -no-empty<CR>
+
+  " <Space>d で dotfiles 編集
+  nnoremap <silent> <Space>d :<C-u>call denite#start(
   \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 
-  " [denite]p で miniyank
-  nnoremap <silent> [denite]<C-p> :<C-u>Denite miniyank
+  " <Space>p で miniyank
+  nnoremap <silent> <Space>p :<C-u>Denite miniyank
   \ -mode=normal<CR>
 
   " ripgrep 使用
   if executable('rg')
+    " file/rec 探索用
     call denite#custom#var('file/rec', 'command',
     \ ['rg', '--files', '--glob', '!.git'])
 
+    " grep
     call denite#custom#var('grep', 'command',
-    \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
+    \ ['rg', '--vimgrep', '--no-heading'])
     call denite#custom#var('grep', 'default_opts', [])
     call denite#custom#var('grep', 'recursive_opts', [])
+
+    " grep(word単位)
+    call denite#custom#alias('source', 'grep/word', 'grep')
+    call denite#custom#var('grep/word', 'command',
+    \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
+    call denite#custom#var('grep/word', 'default_opts', [])
+    call denite#custom#var('grep/word', 'recursive_opts', [])
+
+    " 現在の fileencoding に合わせて rg の encoding を変更
+    function! AU_SetRipGrepEncoding()
+      if &fileencoding == 'cp932'
+        call denite#custom#var('grep', 'command',
+        \ ['rg', '--vimgrep', '--no-heading', '-ESJIS'])
+        call denite#custom#var('grep/word', 'command',
+        \ ['rg', '--vimgrep', '--no-heading', '--word-regexp', '-ESJIS'])
+      else
+        call denite#custom#var('grep', 'command',
+        \ ['rg', '--vimgrep', '--no-heading'])
+        call denite#custom#var('grep/word', 'command',
+        \ ['rg', '--vimgrep', '--no-heading', '--word-regexp'])
+      endif
+    endfunction
+    autocmd myinit BufReadPost * call AU_SetRipGrepEncoding()
   endif
 '''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-  nnoremap [fugitive]  <Nop>
-  nmap <C-g> [fugitive]
-  nnoremap <silent> [fugitive]<C-s> :Gstatus<CR><C-w>T
-  nnoremap <silent> [fugitive]<C-d> :Gvdiff<CR>
-  nnoremap <silent> [fugitive]<C-a> :Gwrite<CR>
-  nnoremap <silent> [fugitive]<C-b> :Gblame<CR>
-  nnoremap <silent> [fugitive]<C-m> :Gmerge<CR>
-  nnoremap <silent> [fugitive]<C-g> :Ggrep<CR>
+  nnoremap [git]  <Nop>
+  nmap <Space>g [git]
+  nnoremap <silent> [git]s :Gstatus<CR>
+  nnoremap <silent> [git]d :Gvdiff<CR>
+  nnoremap <silent> [git]b :Gblame<CR>
+  nnoremap <silent> [git]c :Gcommit-v<CR>
 '''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
   set updatetime=100
+  nmap [git]g <Plug>GitGutterStageHunk
+  nmap [git]u <Plug>GitGutterUndoHunk
+'''
+
+[[plugins]]
+repo = 'cohama/agit.vim'
+hook_add = '''
+  nnoremap <silent> [git]l :Agit<CR>
+  nnoremap <silent> [git]f :AgitFile<CR>
 '''
 
 [[plugins]]
@@ -188,44 +221,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-  " :Tnew の場合に挿入モードで開始
-  let g:neoterm_autoinsert = 1
-
-  " :T {cmd} 実行時に画面スクロールする
-  let g:neoterm_autoscroll = 1
-
-  "let g:neoterm_default_mod = 'vertical'   " 縦分割
-  let g:neoterm_default_mod = 'belowright'  " 横分割
-
-  " :Tnew 実行
-  nnoremap <silent> <C-e><C-t> :Tnew<CR>
-
-  " :Tnew 実行(縦分割)
-  nnoremap <silent> <C-e><C-v> :vertical Tnew<CR>
-
-  " 現在の行を実行
-  nnoremap <silent> <C-e><C-e> :TREPLSendLine<CR>
-
-  " ビジュアルモードで選択中の行を実行
-  vnoremap <silent> <C-e><C-e> V:TREPLSendSelection<CR>
-
-  " ファイルそのものを実行
-  nnoremap <silent> <C-e><C-f> :TREPLSendFile<CR>
-
-  " <Esc> で terminal-mode を抜ける
-  tnoremap <Esc> <C-\><C-n>
-
-  " <C-w> で ウィンドウ移動
-  tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
-  tnoremap <C-w><C-j> <C-\><C-n><C-w><C-j>
-  tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
-  tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
-  tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
-'''
-
-[[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
   nmap n <Plug>(anzu-n)zz
@@ -247,13 +242,10 @@ hook_add = '''
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
-  let g:winresizer_start_key = '<C-e><C-w>'
+  let g:winresizer_start_key = '<C-w><C-e>'
   let g:winresizer_vert_resize = 1
   let g:winresizer_horiz_resize = 1
 '''
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'

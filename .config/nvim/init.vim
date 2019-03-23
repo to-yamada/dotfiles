@@ -96,6 +96,20 @@ autocmd myinit BufReadPost *
 \ endif
 
 "---------------------------------------------------------------------------
+" バイナリ編集モード
+" 参考元: http://d.hatena.ne.jp/rdera/20081022/1224682665
+"---------------------------------------------------------------------------
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary && &modifiable | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | execute "%!xxd -r" | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
+
+"---------------------------------------------------------------------------
 " 共通の設定
 "---------------------------------------------------------------------------
 " タブ
@@ -170,6 +184,10 @@ nnoremap k gk
 nnoremap <Down> gj
 nnoremap j gj
 
+" <Space>s で split, <Space>v で vsplit
+nnoremap <silent> <Space>s :<C-u>split<CR>
+nnoremap <silent> <Space>v :<C-u>vsplit<CR>
+
 " コマンドライン上では emacs 風に移動
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
@@ -186,6 +204,17 @@ nnoremap # "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>:%s/<C-r>///g<Lef
 " diff は C-j, C-k で移動
 nmap <C-j> ]czz
 nmap <C-k> [czz
+
+" terminal
+nnoremap <Space>t :terminal<CR>
+" <Esc> で terminal-mode を抜ける
+tnoremap <Esc> <C-\><C-n>
+" <C-w> で ウィンドウ移動
+tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
+tnoremap <C-w><C-j> <C-\><C-n><C-w><C-j>
+tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
+tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
+tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
 
 "---------------------------------------------------------------------------
 " プロジェクト固有の設定読み込み(.vimrc.local)

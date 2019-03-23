@@ -1,1 +1,1 @@
-Guifont! MyricaM M:h13
+Guifont! Cica:h13
