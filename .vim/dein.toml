@@ -83,8 +83,9 @@ hook_add = '''
   \ -no-empty<CR>
 
   " <Space>d で dotfiles 編集
+  call denite#custom#alias('source', 'file/rec/dot', 'file/rec')
   nnoremap <silent> <Space>d :<C-u>call denite#start(
-  \ [{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
+  \ [{'name': 'file/rec/dot', 'args': ['~/dotfiles']}])<CR>
 
   " ripgrep 使用
   if executable('rg')
