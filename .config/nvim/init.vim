@@ -23,26 +23,24 @@ augroup END
 "---------------------------------------------------------------------------
 " dein
 "---------------------------------------------------------------------------
-let s:cache_home = empty($XDG_CACHE_HOME) ?
-\ expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein_nvim'
+" dein の path を設定
+let s:cache = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache . '/dein_nvim'
 let s:dein_repo_path = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-"deinがinstallされてなければgit clone
+
+" deinがinstallされてなければ git clone
 if !isdirectory(s:dein_repo_path)
   execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_path
 endif
-execute 'set runtimepath^=' . s:dein_repo_path
 
+" dein 読み込み
+execute 'set runtimepath^=' . s:dein_repo_path
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-
   let s:toml = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
   let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
-
-  " TOML 読み込み
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
   call dein#end()
   call dein#save_state()
 endif
@@ -50,7 +48,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
+" 未インストールのプラグインを起動時にインストール
 if dein#check_install()
   call dein#install()
 endif
@@ -64,7 +62,6 @@ function! s:deinClean()
   endif
 endfunction
 command! DeinClean :call s:deinClean()
-
 
 "---------------------------------------------------------------------------
 " 文字コードの自動認識
