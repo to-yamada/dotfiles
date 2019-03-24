@@ -1,0 +1,7 @@
+[core]
+	editor = nvim
+[user]
+	name = to-yamada
+	email = 5902143+to-yamada@users.noreply.github.com
+[color]
+	ui = auto
