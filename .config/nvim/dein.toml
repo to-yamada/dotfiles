@@ -11,6 +11,7 @@ hook_add = '''
   \   'background': { 'guibg': '000000' },
   \   'SpecialKey': { 'guifg': '303030', 'guibg': '', 'ctermbg': '' },
   \   'NonText':    { 'guifg': '303030', 'guibg': '', 'ctermbg': '' },
+  \   'Search':     { 'guibg': '', 'ctermbg': '' },
   \ }
   autocmd myinit VimEnter * nested colorscheme jellybeans
   " vimdiffの色設定
