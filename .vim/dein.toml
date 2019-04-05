@@ -190,6 +190,7 @@ hook_add='''
   endif
 
   let g:lsp_async_completion = 0
+  let g:lsp_diagnostics_enabled = 0
 '''
 
 [[plugins]]
