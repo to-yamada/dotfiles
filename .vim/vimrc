@@ -189,17 +189,6 @@ nnoremap # "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>:%s/<C-r>///g<Lef
 nmap <C-j> ]czz
 nmap <C-k> [czz
 
-" terminal
-nnoremap <Space>t :terminal<CR>
-" <Esc> で terminal-mode を抜ける
-tnoremap <Esc> <C-\><C-n>
-" <C-w> で ウィンドウ移動
-tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
-tnoremap <C-w><C-j> <C-\><C-n><C-w><C-j>
-tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
-tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
-tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
-
 "---------------------------------------------------------------------------
 " プロジェクト固有の設定読み込み(.vimrc.local)
 "---------------------------------------------------------------------------

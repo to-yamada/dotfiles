@@ -260,3 +260,28 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-surround'
 
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+  " :Tnew の場合に挿入モードで開始
+  let g:neoterm_autoinsert = 1
+
+  " :T {cmd} 実行時に画面スクロールする
+  let g:neoterm_autoscroll = 1
+
+  " 横分割
+  let g:neoterm_default_mod = 'belowright'
+
+  " :Tnew 実行
+  nnoremap <silent> <Space>t :Tnew<CR>
+
+  " <Esc> で terminal-mode を抜ける
+  tnoremap <Esc> <C-\><C-n>
+
+  " <C-w> で ウィンドウ移動
+  tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
+  tnoremap <C-w><C-j> <C-\><C-n><C-w><C-j>
+  tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
+  tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
+  tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
+'''
