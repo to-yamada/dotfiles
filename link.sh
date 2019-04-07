@@ -1,25 +1,26 @@
 #!/bin/bash
 
+# 存在していない変数を参照するとエラーにする
 set -u
-DOT_DIRECTORY="${HOME}/dotfiles"
+
+DOTFILES="${HOME}/dotfiles"
 DOT_CONFIG=".config"
 
-cd ${DOT_DIRECTORY}
-for f in .??*
-do
-    #無視したいファイルやディレクトリ
-    [ "$f" = ".git" ] && continue
-    [ "$f" = ".gitignore" ] && continue
-    [ "$f" = ".config" ] && continue
-    [[ "$f" == ".DS_Store" ]] && continue
-    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+# dotfiles へのリンク作成
+cd ${DOTFILES}
+for f in .??*; do
+  #無視したいファイルやディレクトリ
+  [[ "$f" == ".git" ]] && continue
+  [[ "$f" == ".gitignore" ]] && continue
+  [[ "$f" == ${DOT_CONFIG} ]] && continue
+  [[ "$f" == ".DS_Store" ]] && continue
+  ln -snfv ${DOTFILES}/${f} ${HOME}/${f}
 done
 
+# dotfiles/.config へのリンク作成
 mkdir -p ${HOME}/${DOT_CONFIG}
-cd ${DOT_DIRECTORY}/${DOT_CONFIG}
-for d in *
-do
-    ln -snfv ${DOT_DIRECTORY}/${DOT_CONFIG}/$d ${HOME}/${DOT_CONFIG}/${d}
+cd ${DOTFILES}/${DOT_CONFIG}
+for d in *; do
+  ln -snfv ${DOTFILES}/${DOT_CONFIG}/$d ${HOME}/${DOT_CONFIG}/${d}
 done
-
-cd ${DOT_DIRECTORY}
+cd ${DOTFILES}
