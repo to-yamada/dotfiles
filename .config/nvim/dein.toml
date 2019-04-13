@@ -273,7 +273,7 @@ hook_add = '''
   let g:neoterm_default_mod = 'belowright'
 
   " :Tnew 実行
-  nnoremap <silent> <Space>t :Tnew<CR>
+  nnoremap <silent> <Space>tt :Tnew<CR>
 
   " <Esc> で terminal-mode を抜ける
   tnoremap <Esc> <C-\><C-n>
@@ -285,3 +285,14 @@ hook_add = '''
   tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
   tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
 '''
+
+[[plugins]]
+repo = 'thoughtbot/vim-rspec'
+hook_add = '''
+  let g:rspec_command = "!bin/rspec {spec}"
+  nnoremap <silent> <Space>tc :call RunCurrentSpecFile()<CR>
+  nnoremap <silent> <Space>tn :call RunNearestSpec()<CR>
+  nnoremap <silent> <Space>tl :call RunLastSpec()<CR>
+  nnoremap <silent> <Space>ta :call RunAllSpecs()<CR>
+'''
+
