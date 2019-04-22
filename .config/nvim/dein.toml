@@ -204,22 +204,30 @@ repo = 'tpope/vim-rails'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
+  function! MyFileEncoding()
+    return &bomb ? &fileencoding . '(BOM)' : &fileencoding
+  endfunction
+
   let g:lightline = {
-  \   'colorscheme': 'Tomorrow',
+  \   'colorscheme': 'jellybeans',
   \   'active': {
   \     'left': [ [ 'mode', 'paste' ],
-  \               [ 'gitbranch', 'readonly', 'filename', 'modified', 'anzu' ] ]
+  \               [ 'gitbranch', 'readonly', 'filename', 'modified', 'anzu' ] ],
+  \     'right': [ [ 'lineinfo' ],
+  \                [ 'percent' ],
+  \                [ 'fileformat', 'myfileencoding', 'filetype' ] ]
   \   },
   \   'inactive': {
   \     'left': [ [ 'mode', 'paste' ],
   \               [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
   \     'right': [ [ 'lineinfo' ],
   \                [ 'percent' ],
-  \                [ 'fileformat', 'fileencoding', 'filetype' ] ]
+  \                [ 'fileformat', 'myfileencoding', 'filetype' ] ]
   \   },
   \   'component_function': {
   \     'gitbranch': 'fugitive#head',
-  \     'anzu': 'anzu#search_status'
+  \     'anzu': 'anzu#search_status',
+  \     'myfileencoding': 'MyFileEncoding'
   \   },
   \ }
 
