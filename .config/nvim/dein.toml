@@ -40,39 +40,49 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  " s で split
-  call denite#custom#map('normal', "s", '<denite:do_action:split>')
+  " Define mappings
+  autocmd FileType denite call s:denite_my_settings()
+  function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+    \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d
+    \ denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p
+    \ denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> q
+    \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> <ESC>
+    \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i
+    \ denite#do_map('open_filter_buffer')
+  endfunction
 
-  " v で vsplit
-  call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
-
-  " C-j, C-k で上下移動
-  call denite#custom#map('normal', '<C-j>', '<denite:move_to_next_line>')
-  call denite#custom#map('normal', '<C-k>', '<denite:move_to_previous_line>')
-  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
-  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
+  " filter入力での開始をデフォルトとする
+  call denite#custom#option('default', {
+  \ 'start_filter': 1,
+  \ })
 
   " <Space>/ で grep
   nnoremap <silent> <Space>/
-  \ :<C-u>Denite grep -no-empty -mode=normal<CR>
+  \ :<C-u>Denite grep -no-empty -no-start-filter<CR>
 
   " <Space><Space>/ で grep(プロジェクト単位)
   nnoremap <silent> <Space><Space>/
-  \ :<C-u>DeniteProjectDir grep -no-empty -mode=normal<CR>
+  \ :<C-u>DeniteProjectDir grep -no-empty -no-start-filter<CR>
 
   " <Space>k で単語単位 grep
   nnoremap <silent> <Space>k
   \ :<C-u>Denite grep/word:::<C-r><C-w>
-  \ -no-empty -mode=normal<CR>
+  \ -no-empty -no-start-filter<CR>
 
   " <Space><Space>k で単語単位 grep(プロジェクト単位)
   nnoremap <silent> <Space><Space>k
   \ :<C-u>DeniteProjectDir grep/word:::<C-r><C-w>
-  \ -no-empty -mode=normal<CR>
+  \ -no-empty -no-start-filter<CR>
 
   " <Space>r で検索結果を開き直す
   nnoremap <silent> <Space>r :<C-u>Denite -resume
-  \ -no-empty -mode=normal<CR>
+  \ -no-empty -no-start-filter<CR>
 
   " <Space>n で次の検索結果へ
   nnoremap <silent> <Space>n :<C-u>Denite -resume
@@ -97,7 +107,7 @@ hook_add = '''
 
   " <Space>p で miniyank
   nnoremap <silent> <Space>p :<C-u>Denite miniyank
-  \ -mode=normal<CR>
+  \ -no-start-filter<CR>
 
   " ripgrep 使用
   if executable('rg')
