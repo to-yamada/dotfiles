@@ -9,8 +9,6 @@ scriptencoding utf-8
 "---------------------------------------------------------------------------
 if has("win32")
   let g:python3_host_prog = expand('~/AppData/Local/Programs/Python/Python37/python')
-else
-  let g:python3_host_prog = $PYENV_ROOT . '/versions/3.7.3/bin/python3'
 endif
 
 "---------------------------------------------------------------------------
