@@ -56,6 +56,11 @@ hook_add = '''
     \ denite#do_map('open_filter_buffer')
   endfunction
 
+  autocmd FileType denite-filter call s:denite_filter_my_settings()
+  function! s:denite_filter_my_settings() abort
+    imap <silent><buffer> <ESC> <Plug>(denite_filter_quit)
+  endfunction
+
   " filter入力での開始をデフォルトとする
   call denite#custom#option('default', {
   \ 'start_filter': 1,
