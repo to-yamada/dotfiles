@@ -51,6 +51,10 @@ hook_add = '''
     \ denite#do_map('do_action', 'preview')
     nnoremap <silent><buffer><expr> q
     \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> s
+    \ denite#do_map('do_action', 'split')
+    nnoremap <silent><buffer><expr> v
+    \ denite#do_map('do_action', 'vsplit')
     nnoremap <silent><buffer><expr> <ESC>
     \ denite#do_map('quit')
     nnoremap <silent><buffer><expr> i
