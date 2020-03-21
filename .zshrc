@@ -45,7 +45,6 @@ darwin*)
   alias ls='ls -FG'
   alias la='ls -laG'
   alias ll='ls -lg'
-  alias brew="env PATH=${PATH##$(pyenv root)/shims:} brew"
   ;;
 linux*)
   alias ls='ls -F --color=auto'
@@ -131,20 +130,6 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
-
-# rbenv
-if [ -d ${HOME}/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init - zsh)"
-  . ~/.rbenv/completions/rbenv.zsh
-fi
-
-# pyenv
-if [ -d ${HOME}/.pyenv ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
 
 # pipenv
 export PIPENV_VENV_IN_PROJECT=true
