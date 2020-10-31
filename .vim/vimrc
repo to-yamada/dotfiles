@@ -11,62 +11,11 @@ unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
 "---------------------------------------------------------------------------
-" python3
-"---------------------------------------------------------------------------
-if has("win32")
-  let &g:pythonthreedll = expand('~/AppData/Local/Programs/Python/Python37/python37.dll')
-  let g:python3_host_prog = expand('~/AppData/Local/Programs/Python/Python37/python')
-endif
-
-"---------------------------------------------------------------------------
 " 初期化まわりで使用する autocmd を初期化
 "---------------------------------------------------------------------------
 augroup myinit
   autocmd!
 augroup END
-
-"---------------------------------------------------------------------------
-" dein
-"---------------------------------------------------------------------------
-" dein の path を設定
-let s:cache = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache . '/dein_vim'
-let s:dein_repo_path = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-" deinがinstallされてなければ git clone
-if !isdirectory(s:dein_repo_path)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_path
-endif
-
-" dein 読み込み
-execute 'set runtimepath^=' . s:dein_repo_path
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-  let s:toml = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
-  let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  call dein#end()
-  call dein#save_state()
-endif
-
-filetype plugin indent on
-syntax enable
-
-" 未インストールのプラグインを起動時にインストール
-if dein#check_install()
-  call dein#install()
-endif
-
-" プラグイン削除したいときは :DeinClean で削除
-function! s:deinClean()
-  if len(dein#check_clean())
-    call map(dein#check_clean(), 'delete(v:val, "rf")')
-  else
-    echo '[ERR] no disabled plugins'
-  endif
-endfunction
-command! DeinClean :call s:deinClean()
 
 "---------------------------------------------------------------------------
 " 文字コードの自動認識

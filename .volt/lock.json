@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "current_profile_name": "default",
+  "repos": [
+    {
+      "type": "git",
+      "path": "github.com/airblade/vim-gitgutter",
+      "version": "696a6ed389e5b54c8bf480f44ee4e8fc59e6f903"
+    },
+    {
+      "type": "git",
+      "path": "github.com/ctrlpvim/ctrlp.vim",
+      "version": "3866ae170a342fb40d83e1538c37c81c7977b821"
+    },
+    {
+      "type": "git",
+      "path": "github.com/itchyny/lightline.vim",
+      "version": "8769bbb84cd22b475275cc4f9f06a25445357a49"
+    },
+    {
+      "type": "git",
+      "path": "github.com/kassio/neoterm",
+      "version": "e24d0edc1ac932da813e3034b6ecee9179c4b0e9"
+    },
+    {
+      "type": "git",
+      "path": "github.com/mattn/ctrlp-matchfuzzy",
+      "version": "07781dc11bd1b5fabcc8b43269a49f85b960d1e0"
+    },
+    {
+      "type": "git",
+      "path": "github.com/nanotech/jellybeans.vim",
+      "version": "ef83bf4dc8b3eacffc97bf5c96ab2581b415c9fa"
+    },
+    {
+      "type": "git",
+      "path": "github.com/osyo-manga/vim-anzu",
+      "version": "1b95ec384487e559f0ee70e0f46c33683ff533ac"
+    },
+    {
+      "type": "git",
+      "path": "github.com/simeji/winresizer",
+      "version": "e914728083536102c81281a2b2d0b81eec1e6bfb"
+    },
+    {
+      "type": "git",
+      "path": "github.com/tpope/vim-fugitive",
+      "version": "1a77f1c00e12e8460f39098ec3289c5433d32512"
+    },
+    {
+      "type": "git",
+      "path": "github.com/tpope/vim-surround",
+      "version": "f51a26d3710629d031806305b6c8727189cd1935"
+    },
+    {
+      "type": "git",
+      "path": "github.com/vim-jp/vimdoc-ja",
+      "version": "7eb6183f98573dc66ba9e178e30e44e4ab5e5043"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "default",
+      "repos_path": [
+        "github.com/airblade/vim-gitgutter",
+        "github.com/ctrlpvim/ctrlp.vim",
+        "github.com/itchyny/lightline.vim",
+        "github.com/kassio/neoterm",
+        "github.com/mattn/ctrlp-matchfuzzy",
+        "github.com/nanotech/jellybeans.vim",
+        "github.com/osyo-manga/vim-anzu",
+        "github.com/simeji/winresizer",
+        "github.com/tpope/vim-fugitive",
+        "github.com/tpope/vim-surround",
+        "github.com/vim-jp/vimdoc-ja"
+      ]
+    }
+  ]
+}
