@@ -11,8 +11,3 @@ setlocal noexpandtab
 " m1: 閉じていない()使用時、)で始まる行を行頭に並べる
 set cinoptions=l1,:0,(0,Ws,m1
 
-if executable('rg')
-  call denite#custom#var('grep', 'default_opts', ['-tc', '-tcpp'])
-  call denite#custom#var('grep/word', 'default_opts', ['-tc', '-tcpp'])
-endif
-
