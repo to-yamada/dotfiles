@@ -60,7 +60,7 @@
     {
       "type": "git",
       "path": "github.com/vim-jp/vimdoc-ja",
-      "version": "7eb6183f98573dc66ba9e178e30e44e4ab5e5043"
+      "version": "eb832593810a7dd2be79aeed88900f384fc5fd42"
     }
   ],
   "profiles": [
