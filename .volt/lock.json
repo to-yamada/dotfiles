@@ -5,7 +5,7 @@
     {
       "type": "git",
       "path": "github.com/airblade/vim-gitgutter",
-      "version": "696a6ed389e5b54c8bf480f44ee4e8fc59e6f903"
+      "version": "987a33355ef424161fdbc4e5d625b5b5aed9704c"
     },
     {
       "type": "git",
@@ -15,12 +15,12 @@
     {
       "type": "git",
       "path": "github.com/itchyny/lightline.vim",
-      "version": "8769bbb84cd22b475275cc4f9f06a25445357a49"
+      "version": "53176a0b75d6389d775d7bce0d494e58fc654f38"
     },
     {
       "type": "git",
       "path": "github.com/kassio/neoterm",
-      "version": "e24d0edc1ac932da813e3034b6ecee9179c4b0e9"
+      "version": "78461935fcd6888c02e4368126a2cb645b80816e"
     },
     {
       "type": "git",
