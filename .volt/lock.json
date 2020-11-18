@@ -49,6 +49,11 @@
     },
     {
       "type": "git",
+      "path": "github.com/tpope/vim-dispatch",
+      "version": "fe6a34322829e466a7e8ce710a6ac5eabddff9fd"
+    },
+    {
+      "type": "git",
       "path": "github.com/tpope/vim-fugitive",
       "version": "1a77f1c00e12e8460f39098ec3289c5433d32512"
     },
@@ -76,6 +81,7 @@
         "github.com/nanotech/jellybeans.vim",
         "github.com/osyo-manga/vim-anzu",
         "github.com/simeji/winresizer",
+        "github.com/tpope/vim-dispatch",
         "github.com/tpope/vim-fugitive",
         "github.com/tpope/vim-surround",
         "github.com/vim-jp/vimdoc-ja"
