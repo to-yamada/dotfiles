@@ -19,11 +19,6 @@
     },
     {
       "type": "git",
-      "path": "github.com/kassio/neoterm",
-      "version": "78461935fcd6888c02e4368126a2cb645b80816e"
-    },
-    {
-      "type": "git",
       "path": "github.com/mattn/ctrlp-matchfuzzy",
       "version": "07781dc11bd1b5fabcc8b43269a49f85b960d1e0"
     },
@@ -75,7 +70,6 @@
         "github.com/airblade/vim-gitgutter",
         "github.com/ctrlpvim/ctrlp.vim",
         "github.com/itchyny/lightline.vim",
-        "github.com/kassio/neoterm",
         "github.com/mattn/ctrlp-matchfuzzy",
         "github.com/mileszs/ack.vim",
         "github.com/nanotech/jellybeans.vim",
