@@ -10,12 +10,12 @@
     {
       "type": "git",
       "path": "github.com/ctrlpvim/ctrlp.vim",
-      "version": "971c4d41880b72dbbf1620b3ad91418a6a6f6b9c"
+      "version": "3866ae170a342fb40d83e1538c37c81c7977b821"
     },
     {
       "type": "git",
       "path": "github.com/itchyny/lightline.vim",
-      "version": "543ee323a4a63fd32cc17dc57edea9c00962bb12"
+      "version": "53176a0b75d6389d775d7bce0d494e58fc654f38"
     },
     {
       "type": "git",
