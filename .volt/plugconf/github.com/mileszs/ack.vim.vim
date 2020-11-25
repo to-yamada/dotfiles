@@ -3,8 +3,8 @@
 " Plugin configuration like the code written in vimrc.
 " This configuration is executed *before* a plugin is loaded.
 function! s:on_load_pre()
-  if executable('jvgrep')
-    let g:ackprg = "jvgrep"
+  if executable('rg')
+    let g:ackprg = "rg --vimgrep"
   endif
   let g:ack_use_dispatch = 1
   let g:ackpreview = 1
