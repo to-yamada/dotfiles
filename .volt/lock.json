@@ -5,17 +5,17 @@
     {
       "type": "git",
       "path": "github.com/airblade/vim-gitgutter",
-      "version": "987a33355ef424161fdbc4e5d625b5b5aed9704c"
+      "version": "bf813bb99070c22c0a462d79f5072adfb391e4e1"
     },
     {
       "type": "git",
       "path": "github.com/ctrlpvim/ctrlp.vim",
-      "version": "3866ae170a342fb40d83e1538c37c81c7977b821"
+      "version": "971c4d41880b72dbbf1620b3ad91418a6a6f6b9c"
     },
     {
       "type": "git",
       "path": "github.com/itchyny/lightline.vim",
-      "version": "53176a0b75d6389d775d7bce0d494e58fc654f38"
+      "version": "709b2d8dc88fa622d6c076f34b05b58fcccf393f"
     },
     {
       "type": "git",
@@ -50,7 +50,7 @@
     {
       "type": "git",
       "path": "github.com/tpope/vim-fugitive",
-      "version": "1a77f1c00e12e8460f39098ec3289c5433d32512"
+      "version": "e90478511d68cb8a0d8e5dea9c3629e7f0091f8c"
     },
     {
       "type": "git",
