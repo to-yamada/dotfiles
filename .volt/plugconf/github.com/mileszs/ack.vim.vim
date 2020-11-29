@@ -7,7 +7,6 @@ function! s:on_load_pre()
     let g:ackprg = "rg --vimgrep"
   endif
   let g:ack_use_dispatch = 1
-  let g:ackpreview = 1
   let g:ackhighlight = 1
   let g:ack_autoclose = 1
   let g:ack_mappings = {"<ESC>": ":cclose<CR>"}
