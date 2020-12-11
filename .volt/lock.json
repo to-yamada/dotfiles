@@ -50,7 +50,7 @@
     {
       "type": "git",
       "path": "github.com/tpope/vim-fugitive",
-      "version": "7bcfe539beee5fe8c542092732b6fd3786c6080e"
+      "version": "7afa1cfaa62e7fc6f891d0d59f4b10d046b5fd8e"
     },
     {
       "type": "git",
@@ -60,7 +60,7 @@
     {
       "type": "git",
       "path": "github.com/vim-jp/vimdoc-ja",
-      "version": "e4cd21184ed21894c332596f8ef70fc12102ef75"
+      "version": "c2e493e718bf1c3a023aff9d756e54bdb546e66f"
     }
   ],
   "profiles": [
